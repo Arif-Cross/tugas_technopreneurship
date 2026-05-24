@@ -13,107 +13,109 @@
             theme: {
                 extend: {
                     colors: {
-                        kemenkes: {
-                            dark: '#0f5132',   /* Hijau Tua Instansi */
-                            primary: '#198754',/* Hijau Utama Sehat */
-                            light: '#e8f5e9',  /* Hijau Latar Lembut */
-                            accent: '#ffc107'  /* Emas Kontras */
-                        }
+                        darkBg: '#0B0F19', /* Warna hitam kebiruan gelap dari web contoh */
+                        kemenkes: '#00A86B', /* Hijau Kemenkes neon */
+                        kemenkesHover: '#008B58'
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Menciptakan efek grid pembatas halus khas web contoh */
+        .grid-border {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        /* Efek blur kaca (glassmorphism) pada kartu */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="bg-[#0B0F19] text-gray-400 font-sans antialiased selection:bg-kemenkes/30 selection:text-white">
 
     <!-- NAVBAR -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <nav class="sticky top-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <!-- Placeholder Logo Institusi -->
-                <div class="w-10 h-10 bg-kemenkes-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md shadow-kemenkes-primary/30">
-                    <i class="fa-solid fa-building-shield text-base"></i>
+                <div class="w-9 h-9 bg-kemenkes/10 border border-kemenkes/30 rounded-lg flex items-center justify-center text-kemenkes text-lg shadow-[0_0_15px_rgba(0,168,107,0.2)]">
+                    <i class="fa-solid fa-hospital-user"></i>
                 </div>
                 <div>
-                    <span class="font-bold text-lg text-slate-900 block leading-tight tracking-tight">SI-ASET BLU</span>
-                    <span class="text-xs text-slate-500 font-medium">Poltekkes Kemenkes Jambi</span>
+                    <span class="font-bold text-white text-base block leading-tight tracking-tight">SI-ASET BLU</span>
+                    <span class="text-[10px] text-gray-500 font-medium block">Poltekkes Kemenkes Jambi</span>
                 </div>
             </div>
             
-            <!-- Menu Navigasi Desktop -->
-            <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
-                <a href="#fitur" class="hover:text-kemenkes-primary transition">Fitur</a>
-                <a href="#alur" class="hover:text-kemenkes-primary transition">Alur Sewa</a>
-                <a href="#katalog" class="hover:text-kemenkes-primary transition">Katalog</a>
-                <a href="#tarif" class="hover:text-kemenkes-primary transition">Tarif BLU</a>
+            <div class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wide uppercase text-gray-400">
+                <a href="#fitur" class="hover:text-white transition">Fitur</a>
+                <a href="#alur" class="hover:text-white transition">Alur Sewa</a>
+                <a href="#katalog" class="hover:text-white transition">Katalog</a>
+                <a href="#harga" class="hover:text-white transition">Tarif BLU</a>
             </div>
 
-            <div class="flex items-center space-x-4">
-                <a href="#login" class="text-sm font-semibold text-kemenkes-primary hover:text-kemenkes-dark px-4 py-2 transition">Masuk</a>
-                <a href="#katalog" class="bg-kemenkes-primary hover:bg-kemenkes-dark text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-kemenkes-primary/20 transition duration-300">Mulai Sewa</a>
+            <div>
+                <a href="#katalog" class="bg-white hover:bg-gray-100 text-black text-xs font-bold px-5 py-2.5 rounded-full transition duration-300 shadow-[0_4px_12px_rgba(255,255,255,0.1)]">
+                    Mulai Sewa
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative overflow-hidden bg-gradient-to-b from-kemenkes-light/50 via-white to-slate-50 pt-16 pb-24">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+    <header class="relative pt-16 pb-24 overflow-hidden border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6 text-center md:text-left">
-                <div class="inline-flex items-center space-x-2 bg-kemenkes-primary/10 border border-kemenkes-primary/20 text-kemenkes-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-                    <i class="fa-solid fa-circle-check text-[10px]"></i>
-                    <span>Resmi Badan Layanan Umum (BLU)</span>
+                <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                    <span>// SISTEM INFORMASI PENYEWAAN ASET</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-                    Pengelolaan & Penyewaan Aset Kini Lebih <span class="text-kemenkes-primary bg-gradient-to-r from-kemenkes-primary to-emerald-600 bg-clip-text text-transparent">Transparan</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
+                    Penyewaan Aset BLU Jadi Lebih <span class="bg-gradient-to-r from-kemenkes to-emerald-400 bg-clip-text text-transparent">Transparan & Efisien</span>
                 </h1>
-                <p class="text-slate-600 text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
-                    Fasilitasi peminjaman ruang gedung, alat laboratorium canggih, dan fasilitas publik kampus secara digital, akuntabel, dan terintegrasi langsung dengan PNBP.
+                <p class="text-gray-400 text-sm leading-relaxed max-w-lg mx-auto md:mx-0">
+                    Fasilitasi peminjaman ruang auditorium, alat laboratorium terpadu, dan fasilitas kampus secara digital. Akuntabel dan terintegrasi langsung dengan PNBP Kemenkes.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="#katalog" class="w-full sm:w-auto text-center bg-kemenkes-primary hover:bg-kemenkes-dark text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-kemenkes-primary/20 transition duration-300">
-                        <i class="fa-solid fa-magnifying-glass mr-2"></i> Jelajahi Katalog
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 pt-2">
+                    <a href="#katalog" class="w-full sm:w-auto text-center bg-kemenkes hover:bg-kemenkesHover text-white font-bold text-xs px-6 py-3.5 rounded-full transition duration-300 shadow-[0_0_20px_rgba(0,168,107,0.3)]">
+                        🚀 Mulai Sewa Sekarang
                     </a>
-                    <a href="#alur" class="w-full sm:w-auto text-center bg-white hover:bg-slate-50 text-slate-700 font-semibold px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition">
-                        Pelajari Alur
+                    <a href="#fitur" class="w-full sm:w-auto text-center bg-white/5 hover:bg-white/10 text-white font-bold text-xs px-6 py-3.5 rounded-full border border-white/10 transition">
+                        Lihat Fitur
                     </a>
                 </div>
-                <!-- Mini Stats / Social Proof -->
-                <div class="pt-8 border-t border-slate-200 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0 text-center md:text-left">
+                <!-- Mini Stats Counter -->
+                <div class="pt-8 border-t border-white/5 flex items-center justify-center md:justify-start space-x-8 text-center md:text-left">
                     <div>
-                        <span class="block text-2xl font-bold text-slate-900">50+</span>
-                        <span class="text-xs text-slate-500 font-medium">Aset Pilihan</span>
+                        <span class="block text-xl font-extrabold text-white">50+ Aset</span>
+                        <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider block">Siap Digunakan</span>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold text-slate-900">100%</span>
-                        <span class="text-xs text-slate-500 font-medium">Tarif PNBP Resmi</span>
-                    </div>
-                    <div>
-                        <span class="block text-2xl font-bold text-slate-900">Real-Time</span>
-                        <span class="text-xs text-slate-500 font-medium">Cek Kalender</span>
+                        <span class="block text-xl font-extrabold text-white">100% Resmi</span>
+                        <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider block">Standar PMK Keuangan</span>
                     </div>
                 </div>
             </div>
-            <!-- Sisi Kanan: Visual/Ilustrasi Mockup -->
-            <div class="relative hidden md:block">
-                <div class="absolute -inset-4 bg-gradient-to-tr from-kemenkes-primary to-emerald-400 opacity-20 blur-2xl rounded-full"></div>
-                <div class="relative bg-white border border-slate-200 p-4 rounded-2xl shadow-2xl">
-                    <!-- Ilustrasi List Box Minimalis mirip StudyGroup -->
-                    <div class="bg-slate-900 text-white p-4 rounded-xl mb-4 flex items-center justify-between shadow-md">
+            
+            <!-- Hero Visual Right (Gaya Mockup Web Contoh) -->
+            <div class="relative flex justify-center md:justify-end">
+                <div class="w-full max-w-sm glass-card rounded-2xl p-5 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                    <div class="bg-gray-950 rounded-xl p-3 border border-white/5 mb-3 flex items-center justify-between">
                         <div class="flex items-center space-x-3">
-                            <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
-                            <span class="text-sm font-medium">Auditorium Utama Tersedia</span>
+                            <span class="w-2 h-2 rounded-full bg-kemenkes block animate-pulse"></span>
+                            <span class="text-xs font-bold text-white">Auditorium Direktorat</span>
                         </div>
-                        <span class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Aktif</span>
+                        <span class="text-[9px] bg-kemenkes/10 border border-kemenkes/30 text-kemenkes px-2 py-0.5 rounded font-bold uppercase tracking-wider">Tersedia</span>
                     </div>
-                    <div class="space-y-3">
-                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-between">
-                            <span class="text-sm font-semibold">Lab. Keperawatan Terpadu</span>
-                            <span class="text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded-md font-medium"><i class="fa-regular fa-calendar-check mr-1"></i> Dibooking</span>
+                    <div class="space-y-2">
+                        <div class="p-3 bg-white/[0.02] border border-white/5 rounded-xl flex items-center justify-between">
+                            <span class="text-xs text-gray-300 font-medium">Lab Terpadu Keperawatan</span>
+                            <span class="text-[10px] text-amber-500 font-semibold"><i class="fa-regular fa-calendar-check mr-1"></i> Terbooking</span>
                         </div>
-                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-between">
-                            <span class="text-sm font-semibold">Bus Kampus AC Operasional</span>
-                            <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md font-medium"><i class="fa-solid fa-circle mr-1 text-[8px]"></i> Bebas Sewa</span>
+                        <div class="p-3 bg-white/[0.02] border border-white/5 rounded-xl flex items-center justify-between">
+                            <span class="text-xs text-gray-300 font-medium">Bus Kampus AC Operasional</span>
+                            <span class="text-[10px] text-kemenkes font-semibold"><i class="fa-solid fa-circle text-[6px] mr-1"></i> Bebas Sewa</span>
                         </div>
                     </div>
                 </div>
@@ -122,25 +124,33 @@
     </header>
 
     <!-- FITUR UNGGULAN -->
-    <section id="fitur" class="py-20 bg-white border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold text-kemenkes-primary uppercase tracking-wider block">Fitur Utama</span>
-                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Kemudahan Sewa dalam Satu Platform</h2>
-                <p class="text-slate-500">Dirancang khusus untuk efisiensi birokrasi dan transparansi penuh bagi publik serta civitas akademika.</p>
+    <section id="fitur" class="py-20 border-b border-white/5 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
+                <span class="text-[10px] font-bold text-kemenkes uppercase tracking-widest block">// FITUR UNGGULAN</span>
+                <h2 class="text-3xl font-extrabold text-white tracking-tight">Semua yang Kamu Butuhkan untuk Sewa</h2>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6">
                 <!-- Fitur 1 -->
-                <div class="bg-slate-50 border border-slate-200/60 p-8 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                    <div class="w-12 h-12 bg-kemenkes-primary/10 rounded-xl flex items-center justify-center text-kemenkes-primary text-xl mb-6 group-hover:bg-kemenkes-primary group-hover:text-white transition duration-300">
-                        <i class="fa-solid fa-list-check"></i>
+                <div class="glass-card p-8 rounded-2xl hover:border-white/10 transition group">
+                    <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-white text-base mb-6 group-hover:bg-kemenkes group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-folder-open"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">E-Katalog Transparan</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Pantau spesifikasi teknis, foto real, kelengkapan alat, fasilitas penunjang, hingga lokasi persis aset sebelum memesan.</p>
+                    <h3 class="text-base font-bold text-white mb-2">E-Katalog Terorganisir</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Cari fasilitas laboratorium (PDF/Docx spesifikasi), ruang aula, serta alat medis dalam satu ruang kerja digital.</p>
                 </div>
                 <!-- Fitur 2 -->
-                <div class="bg-slate-50 border border-slate-200/60 p-8 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                    <div class="w-12 h-12 bg-kemenkes-primary/10 rounded-xl flex items-center justify-center text-kemenkes-primary text-xl mb-6 group-hover:bg-kemenkes-primary group-hover:text-white transition duration-300">
-                        <i class="fa-regular fa-calendar-days"></i>
+                <div class="glass-card p-8 rounded-2xl hover:border-white/10 transition group">
+                    <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-white text-base mb-6 group-hover:bg-kemenkes group-hover:text-white transition duration-300">
+                        <i class="fa-regular fa-comments"></i>
                     </div>
+                    <h3 class="text-base font-bold text-white mb-2">Asisten Kalender Cerdas</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Sistem mengecek ketersediaan tanggal secara riil dan kontekstual untuk mencegah tabrakan jadwal pemakaian.</p>
+                </div>
+                <!-- Fitur 3 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-white/10 transition group">
+                    <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-white text-base mb-6 group-hover:bg-kemenkes group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Virtual Account Instan</h3>
