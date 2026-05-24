@@ -3,140 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Manajemen & Sewa Aset Poltekkes Kemenkes Jambi</title>
+    <title>SI Penyewaan Aset BLU - Poltekkes Kemenkes Jambi</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- AOS (Animate On Scroll) Library CSS -->
-    <link rel="stylesheet" href="https://unpkg.com" />
-    <!-- HUBUNGKAN KE FILE STYLE.CSS KUSTOM ANDA -->
-    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kemenkes: {
+                            dark: '#0f5132',   /* Hijau Tua Instansi */
+                            primary: '#198754',/* Hijau Utama Sehat */
+                            light: '#e8f5e9',  /* Hijau Latar Lembut */
+                            accent: '#ffc107'  /* Emas Kontras */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- 1. HEADER / NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-transparent py-5 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black text-blue-600 flex items-center gap-2 tracking-tight">
-                <i class="fa-solid fa-boxes-stacked animate-pulse"></i> PinjamBarang
-            </a>
-            <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
-                <a href="#fitur" class="hover:text-blue-600 transition-colors duration-200">Fitur</a>
-                <a href="#live-demo" class="hover:text-blue-600 transition-colors duration-200">Live Demo</a>
-                <a href="#cara-kerja" class="hover:text-blue-600 transition-colors duration-200">Cara Kerja</a>
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder Logo Institusi -->
+                <div class="w-10 h-10 bg-kemenkes-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md shadow-kemenkes-primary/30">
+                    <i class="fa-solid fa-building-shield text-base"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-lg text-slate-900 block leading-tight tracking-tight">SI-ASET BLU</span>
+                    <span class="text-xs text-slate-500 font-medium">Poltekkes Kemenkes Jambi</span>
+                </div>
             </div>
-            <button onclick="openModal()" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 active:scale-95 transition-all duration-200 font-bold shadow-md shadow-blue-200">
-                Coba Simulasi
-            </button>
+            
+            <!-- Menu Navigasi Desktop -->
+            <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+                <a href="#fitur" class="hover:text-kemenkes-primary transition">Fitur</a>
+                <a href="#alur" class="hover:text-kemenkes-primary transition">Alur Sewa</a>
+                <a href="#katalog" class="hover:text-kemenkes-primary transition">Katalog</a>
+                <a href="#tarif" class="hover:text-kemenkes-primary transition">Tarif BLU</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#login" class="text-sm font-semibold text-kemenkes-primary hover:text-kemenkes-dark px-4 py-2 transition">Masuk</a>
+                <a href="#katalog" class="bg-kemenkes-primary hover:bg-kemenkes-dark text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-kemenkes-primary/20 transition duration-300">Mulai Sewa</a>
+            </div>
         </div>
     </nav>
 
-    <!-- 2. HERO SECTION -->
-    <header class="relative max-w-6xl mx-auto px-6 pt-32 pb-12 md:pt-44 md:pb-20 grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6" data-aos="fade-right" data-aos-duration="1000">
-            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full text-sm font-semibold tracking-wide">
-                <span class="flex h-2 w-2 rounded-full bg-blue-600 animate-ping"></span> Fitur Live Sinkronisasi Aktif
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-kemenkes-light/50 via-white to-slate-50 pt-16 pb-24">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center space-x-2 bg-kemenkes-primary/10 border border-kemenkes-primary/20 text-kemenkes-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-circle-check text-[10px]"></i>
+                    <span>Resmi Badan Layanan Umum (BLU)</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+                    Pengelolaan & Penyewaan Aset Kini Lebih <span class="text-kemenkes-primary bg-gradient-to-r from-kemenkes-primary to-emerald-600 bg-clip-text text-transparent">Transparan</span>
+                </h1>
+                <p class="text-slate-600 text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+                    Fasilitasi peminjaman ruang gedung, alat laboratorium canggih, dan fasilitas publik kampus secara digital, akuntabel, dan terintegrasi langsung dengan PNBP.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-2">
+                    <a href="#katalog" class="w-full sm:w-auto text-center bg-kemenkes-primary hover:bg-kemenkes-dark text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-kemenkes-primary/20 transition duration-300">
+                        <i class="fa-solid fa-magnifying-glass mr-2"></i> Jelajahi Katalog
+                    </a>
+                    <a href="#alur" class="w-full sm:w-auto text-center bg-white hover:bg-slate-50 text-slate-700 font-semibold px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition">
+                        Pelajari Alur
+                    </a>
+                </div>
+                <!-- Mini Stats / Social Proof -->
+                <div class="pt-8 border-t border-slate-200 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0 text-center md:text-left">
+                    <div>
+                        <span class="block text-2xl font-bold text-slate-900">50+</span>
+                        <span class="text-xs text-slate-500 font-medium">Aset Pilihan</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold text-slate-900">100%</span>
+                        <span class="text-xs text-slate-500 font-medium">Tarif PNBP Resmi</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold text-slate-900">Real-Time</span>
+                        <span class="text-xs text-slate-500 font-medium">Cek Kalender</span>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-                Kelola & Pinjam Barang Kantor Lebih <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Mudah & Transparan</span>
-            </h1>
-            <p class="text-lg text-slate-600 leading-relaxed max-w-lg">
-                Hapus birokrasi kertas yang rumit. Lacak, jadwalkan, dan kelola semua aset perusahaan secara digital dan otomatis dalam satu aplikasi terpusat.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                <button onclick="openModal()" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center px-8 py-4 rounded-xl font-bold hover:opacity-90 active:scale-95 shadow-lg shadow-blue-200 transition-all">
-                    Isi Form Peminjaman
-                </button>
-                <a href="#live-demo" class="bg-white text-slate-700 text-center px-8 py-4 rounded-xl font-bold border border-slate-200 hover:bg-slate-50 active:scale-95 transition-all flex items-center justify-center gap-2">
-                    Lihat Dashboard <i class="fa-solid fa-chart-line text-sm text-blue-600"></i>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Ilustrasi Mockup -->
-        <div class="flex justify-center" data-aos="fade-left" data-aos-duration="1000">
-            <div class="w-full max-w-md bg-gradient-to-br from-blue-50 to-indigo-100 h-80 rounded-3xl flex items-center justify-center text-blue-500 shadow-xl border border-white/50 relative overflow-hidden group">
-                <div class="text-center p-6 transform group-hover:scale-105 transition-transform duration-300">
-                    <i class="fa-solid fa-circle-nodes text-6xl mb-4 text-blue-600 animate-spin-slow"></i>
-                    <p class="font-bold text-slate-800 text-lg">Sistem Terintegrasi IoT</p>
-                    <p class="text-sm text-slate-500 mt-1 max-w-xs mx-auto">Isi formulir simulasi untuk melihat perubahan status barang secara instan di bawah.</p>
+            <!-- Sisi Kanan: Visual/Ilustrasi Mockup -->
+            <div class="relative hidden md:block">
+                <div class="absolute -inset-4 bg-gradient-to-tr from-kemenkes-primary to-emerald-400 opacity-20 blur-2xl rounded-full"></div>
+                <div class="relative bg-white border border-slate-200 p-4 rounded-2xl shadow-2xl">
+                    <!-- Ilustrasi List Box Minimalis mirip StudyGroup -->
+                    <div class="bg-slate-900 text-white p-4 rounded-xl mb-4 flex items-center justify-between shadow-md">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                            <span class="text-sm font-medium">Auditorium Utama Tersedia</span>
+                        </div>
+                        <span class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Aktif</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-between">
+                            <span class="text-sm font-semibold">Lab. Keperawatan Terpadu</span>
+                            <span class="text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded-md font-medium"><i class="fa-regular fa-calendar-check mr-1"></i> Dibooking</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-between">
+                            <span class="text-sm font-semibold">Bus Kampus AC Operasional</span>
+                            <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md font-medium"><i class="fa-solid fa-circle mr-1 text-[8px]"></i> Bebas Sewa</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- LIVE DEMO SECTION (Tabel Riwayat Peminjaman Interaktif) -->
-    <section id="live-demo" class="max-w-6xl mx-auto px-6 py-12" data-aos="fade-up" data-aos-duration="1000">
-        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
-            <div class="p-6 bg-slate-900 text-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                    <h3 class="text-lg font-bold flex items-center gap-2">
-                        <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        Simulasi Dashboard Admin Kantor
-                    </h3>
-                    <p class="text-slate-400 text-xs mt-0.5">Menampilkan log sirkulasi barang secara real-time</p>
-                </div>
-                <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition-all flex items-center gap-1.5">
-                    <i class="fa-solid fa-plus"></i> Tambah Pengajuan Baru
-                </button>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-slate-50 text-slate-500 text-xs font-bold uppercase tracking-wider border-b border-slate-100">
-                            <th class="p-4">Peminjam</th>
-                            <th class="p-4">Nama Barang</th>
-                            <th class="p-4">Durasi Pinjam</th>
-                            <th class="p-4">Status Aset</th>
-                        </tr>
-                    </thead>
-                    <tbody id="loanTableBody" class="text-sm divide-y divide-slate-100 font-medium text-slate-700">
-                        <!-- Data Bawaan Awal -->
-                        <tr>
-                            <td class="p-4 flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-600">JD</div>
-                                Jane Doe
-                            </td>
-                            <td class="p-4 text-slate-600">Laptop Asus ROG (Divisi Desain)</td>
-                            <td class="p-4 text-xs text-slate-500">24 Mei &rarr; 27 Mei</td>
-                            <td class="p-4"><span class="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full text-xs font-semibold border border-emerald-200">Approved</span></td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-600">AS</div>
-                                Ahmad Salim
-                            </td>
-                            <td class="p-4 text-slate-600">Proyektor Epson HD (Ruang Rapat)</td>
-                            <td class="p-4 text-xs text-slate-500">24 Mei &rarr; 24 Mei</td>
-                            <td class="p-4"><span class="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full text-xs font-semibold border border-blue-200">Returned</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. FEATURES SECTION (Deretan cards dengan efek AOS) -->
-    <section id="fitur" class="bg-white py-20 md:py-28 border-t border-slate-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3" data-aos="fade-up">
-                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Kenapa Memilih PinjamBarang?</h2>
-                <p class="text-slate-600">Fitur cerdas kami dirancang untuk memangkas waktu administrasi dan meminimalisir risiko kehilangan aset.</p>
+    <!-- FITUR UNGGULAN -->
+    <section id="fitur" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold text-kemenkes-primary uppercase tracking-wider block">Fitur Utama</span>
+                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Kemudahan Sewa dalam Satu Platform</h2>
+                <p class="text-slate-500">Dirancang khusus untuk efisiensi birokrasi dan transparansi penuh bagi publik serta civitas akademika.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="group p-8 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-blue-100 group-hover:bg-blue-600 text-blue-600 group-hover:text-white rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300">
-                        <i class="fa-solid fa-qrcode"></i>
+                <!-- Fitur 1 -->
+                <div class="bg-slate-50 border border-slate-200/60 p-8 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 bg-kemenkes-primary/10 rounded-xl flex items-center justify-center text-kemenkes-primary text-xl mb-6 group-hover:bg-kemenkes-primary group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-list-check"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Scan QR Code</h3>
-                    <p class="text-slate-600 leading-relaxed">Proses checkout dan checkin barang hanya butuh 3 detik menggunakan kamera smartphone.</p>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">E-Katalog Transparan</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Pantau spesifikasi teknis, foto real, kelengkapan alat, fasilitas penunjang, hingga lokasi persis aset sebelum memesan.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="group p-8 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-emerald-100 group-hover:bg-emerald-600 text-emerald-600 group-hover:text-white rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300">
-                        <i class="fa-solid fa-bell"></i>
+                <!-- Fitur 2 -->
+                <div class="bg-slate-50 border border-slate-200/60 p-8 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                    <div class="w-12 h-12 bg-kemenkes-primary/10 rounded-xl flex items-center justify-center text-kemenkes-primary text-xl mb-6 group-hover:bg-kemenkes-primary group-hover:text-white transition duration-300">
+                        <i class="fa-regular fa-calendar-days"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Pengingat Otomatis</h3>
